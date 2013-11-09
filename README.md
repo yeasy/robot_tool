@@ -10,12 +10,35 @@ robot_tool
 
 `git clone https://github.com/yeasy/robot_tool.git`
 
+##Directory statement.
+|
+|
+|------|base  //all test cases for base edition
+|
+|------|libraries  // all keywords
+|
+|------|resources  // resources related stuff
+|
+|------|service_provider  // all test cases for service_provider edition
+|
+|------|variables  // all variables
+|
+|------|virtualization  // all test cases for virtualization edition
+
+##Robot framework user guide.
+   http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.8.1
+
+##Testlibraries references.
+   3.1 A list of available test libraries for Robot Framework 
+   http://code.google.com/p/robotframework/wiki/TestLibraries
+
+
 ##Usage
 ###Prerequisites
 * Python 2.6/2.7
-* Python [Requests library](http://www.python-requests.org)
-
-  ` pip install requests`
+* Python [Roboframework-equests library](https://github.com/bulkan/robotframework-requests/)
+ 
+  pip install -U robotframework-requests
 
 * [OpenDaylight Controller](https://wiki.opendaylight.org/view/GettingStarted:Developer_Main)
    * Download and build OpenDaylight Controller
@@ -34,6 +57,11 @@ robot_tool
   cd controller/target/distribution.opendaylight-0.1.0-SNAPSHOT-osgipackage/opendaylight/
   ./run.sh
   ```
+* Start mininet.
+
+*  Make sure mininet has all switches connected to the controller, for example, 
+      sudo mn --controller=remote,ip=your_controller_ip --topo tree,2
+*  Goto base directory, executing pybot switch_manager.txt
   
 ##Code Description
 

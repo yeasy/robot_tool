@@ -1,0 +1,23 @@
+*** Settings ***
+Library           Collections
+Library           RequestsLibrary
+Library           ../libraries/SwitchManager.py
+
+*** Variables ***
+${URL}            /controller/nb/v2/switchmanager/default/nodes
+
+*** Test Cases ***
+Get all nodes
+    [Documentation]    This test cases is for switchmanager bundle of opendaylight project.
+    ${auth}    Create List    admin    admin
+    Create Session    odl_controller    http://127.0.0.1:8080    auth=${auth}
+    ${resp}    Get    odl_controller    ${URL}
+    Should Be Equal As Strings    ${resp.status_code}    200
+    ${node1}    Create Dictionary    type    OF    id    00:00:00:00:00:00:00:01
+    ${node2}    Create Dictionary    type    OF    id    00:00:00:00:00:00:00:02
+    ${node3}    Create Dictionary    type    OF    id    00:00:00:00:00:00:00:03
+    ${jsondata}=     To JSON     ${resp.content}
+    ${nodes}    Extract All Nodes    ${jsondata}
+    Should Contain    ${nodes}     ${node1}
+    Should Contain    ${nodes}     ${node2}
+    Should Contain     ${nodes}     ${node3}
