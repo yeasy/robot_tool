@@ -10,20 +10,6 @@ robot_tool
 
 `git clone https://github.com/yeasy/robot_tool.git`
 
-##Directory statement.
-|
-|
-|------|base  //all test cases for base edition
-|
-|------|libraries  // all keywords
-|
-|------|resources  // resources related stuff
-|
-|------|service_provider  // all test cases for service_provider edition
-|
-|------|variables  // all variables
-|
-|------|virtualization  // all test cases for virtualization edition
 
 ##Robot framework user guide.
    http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.8.1
@@ -65,6 +51,20 @@ robot_tool
 *  Goto base directory, executing pybot switch_manager.txt
   
 ##Code Description
+|
+|
+|------\cases----|
+       |         \-----base  //all test cases for base edition
+       |         |
+       |         \-----service_provider // all test cases for service provider edition
+       |         |
+       |         \-----virtualization  // all test cases for virtualization edition
+       |
+       \-----libraries  // all keywords
+       |
+       \-----resources  // resources related stuff
+       |
+       \-----variables  // all variables
 
 ##Development Plan
 * TODO
