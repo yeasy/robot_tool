@@ -11,18 +11,10 @@ robot_tool
 `git clone https://github.com/yeasy/robot_tool.git`
 
 
-##Robot framework user guide.
-   http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.8.1
-
-##Testlibraries references.
-   3.1 A list of available test libraries for Robot Framework 
-   http://code.google.com/p/robotframework/wiki/TestLibraries
-
-
 ##Usage
 ###Prerequisites
 * Python 2.6/2.7
-* Python [Roboframework-equests library](https://github.com/bulkan/robotframework-requests/)
+* Python [Roboframework-requests library](https://github.com/bulkan/robotframework-requests/)
  
   pip install -U robotframework-requests
 
@@ -44,11 +36,9 @@ robot_tool
   cd controller/target/distribution.opendaylight-0.1.0-SNAPSHOT-osgipackage/opendaylight/
   ./run.sh
   ```
-* Start mininet.
-
-*  Make sure mininet has all switches connected to the controller, for example, 
-      sudo mn --controller=remote,ip=your_controller_ip --topo tree,2
-*  Goto base directory, executing pybot switch_manager.txt
+* Start mininet, and make sure mininet has all switches connected to the controller, for example, 
+      `sudo mn --controller=remote,ip=your_controller_ip --topo tree,2`
+*  Goto base directory, executing `pybot switch_manager.txt`
   
 ##Code Description
 |
@@ -73,3 +63,11 @@ robot_tool
 OpenDaylight is the first production-quality open-source SDN management platform sponsored by Linux Foundation. 
 Lead SDN enterprises (Ericsson, IBM, Microsoft, Redhat, Cisco, Juniper, NEC, VMWare etc.) are involved to develop and support the project.
 Please go to the official [homepage](http://www.opendaylight.org) page to find more information.
+
+
+##Robot framework user guide.
+   http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.8.1
+
+##Testlibraries references.
+   3.1 A list of available test libraries for Robot Framework 
+   http://code.google.com/p/robotframework/wiki/TestLibraries
