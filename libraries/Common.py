@@ -5,17 +5,6 @@ Updated: 2013-11-14
 """
 import collections
 
-# Global variables
-DEFAULT_CONTROLLER_IP = '127.0.0.1'
-#DEFAULT_CONTROLLER_IP = '9.186.105.113' #just for temp test
-DEFAULT_PORT = '8080'
-DEFAULT_PREFIX = 'http://' + DEFAULT_CONTROLLER_IP + ':' + DEFAULT_PORT
-DEFAULT_CONTAINER = 'default'
-DEFAULT_USER = 'admin'
-DEFAULT_PWD = 'admin'
-MODULES_DIR = 'modules'
-TIMEOUTS = 2
-
 '''
 Common constants and functions for the robot framework.
 '''
