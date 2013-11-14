@@ -32,14 +32,14 @@ def collection_should_contain(collection, *members):
     else:
         return True
 
-def combine_strings(strings):
+def combine_strings(*strings):
     """
     Combines the given `strings` together and returns the result.
     The given strings are not altered by this keyword.
     """
     result = ''
     for s in strings:
-        if isinstance(s,str):
+        if isinstance(s,str) or isinstance(s,unicode):
             result += s
     if result == '':
         return None
