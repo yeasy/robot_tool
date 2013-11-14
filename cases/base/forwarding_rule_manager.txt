@@ -1,0 +1,11 @@
+*** Settings ***
+Documentation     Test suite for the forwarding rule manager bundle.
+Library           Collections
+Library           RequestsLibrary
+Library           ../../libraries/Common.py
+Variables         ../../libraries/Variables.py
+
+*** Variables ***
+${REST_SC}        /controller/nb/v2/flowprogrammer
+
+*** Test Cases ***
