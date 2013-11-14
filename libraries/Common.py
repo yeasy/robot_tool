@@ -32,5 +32,19 @@ def collection_should_contain(collection, *members):
     else:
         return True
 
+def combine_strings(strings):
+    """
+    Combines the given `strings` together and returns the result.
+    The given strings are not altered by this keyword.
+    """
+    result = ''
+    for s in strings:
+        if isinstance(s,str):
+            result += s
+    if result == '':
+        return None
+    else:
+        return result
+
 if __name__ == '__main__':
     pass
