@@ -12,5 +12,3 @@ PREFIX = 'http://' + CONTROLLER_IP + ':' + PORT
 CONTAINER = 'default'
 USER = 'admin'
 PWD = 'admin'
-MODULES_DIR = 'modules'
-TIMEOUTS = 2
