@@ -6,6 +6,6 @@ Library           ../../libraries/Common.py
 Variables         ../../libraries/Variables.py
 
 *** Variables ***
-${REST_SC}        /controller/nb/v2/flowprogrammer
+${REST_CONTEXT}        /controller/nb/v2/flowprogrammer
 
 *** Test Cases ***

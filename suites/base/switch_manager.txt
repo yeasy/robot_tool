@@ -7,14 +7,14 @@ Library           ../../libraries/SwitchManager.py
 Variables         ../../libraries/Variables.py
 
 *** Variables ***
-${REST_SC}        /controller/nb/v2/switchmanager
+${REST_CONTEXT}        /controller/nb/v2/switchmanager
 
 *** Test Cases ***
 List all nodes
     [Documentation]    List all nodes and their properties in the network.
     [Tags]    list_info
     ${auth}    Create List    ${USER}    ${PWD}
-    ${URL}    Combine Strings    ${REST_SC}    /    ${CONTAINER}    /nodes
+    ${URL}    Combine Strings    ${REST_CONTEXT}    /    ${CONTAINER}    /nodes
     ${node1}    Create Dictionary    type    OF    id    00:00:00:00:00:00:00:01
     ${node2}    Create Dictionary    type    OF    id    00:00:00:00:00:00:00:02
     ${node3}    Create Dictionary    type    OF    id    00:00:00:00:00:00:00:03
