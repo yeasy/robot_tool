@@ -4,7 +4,7 @@ Library           Collections
 Library           RequestsLibrary
 Library           ../../libraries/Common.py
 Library           ../../libraries/SwitchManager.py
-Variables         ../../libraries/Variables.py
+Variables         ../../variables/Variables.py
 
 *** Variables ***
 ${REST_CONTEXT}        /controller/nb/v2/switchmanager

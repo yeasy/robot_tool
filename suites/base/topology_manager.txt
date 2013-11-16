@@ -3,7 +3,7 @@ Documentation     Test suite for the topology manager bundle.
 Library           Collections
 Library           RequestsLibrary
 Library           ../../libraries/Common.py
-Variables         ../../libraries/Variables.py
+Variables         ../../variables/Variables.py
 
 *** Variables ***
 ${REST_CONTEXT}        /controller/nb/v2/topology
