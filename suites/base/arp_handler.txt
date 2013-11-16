@@ -3,9 +3,19 @@ Documentation     Test suite for the arp handler bundle.
 Library           Collections
 Library           RequestsLibrary
 Library           ../../libraries/Common.py
+Library           ../../libraries/ArpHandler.py
 Variables         ../../variables/Variables.py
 
 *** Variables ***
-${REST_CONTEXT}        /controller/nb/v2/subnetservice
+${name}           test_subnet1
 
 *** Test Cases ***
+Add and remove a subnet
+    [Documentation]    Add and remove a subnet. After each operation, list to validate the result.
+    [Tags]    add_remove_info
+    ${body}    Create Dictionary    name    ${name}    subnet    10.0.0.254/8
+    Add Subnet Gateway    ${name}    ${body}
+    ${result}    Get Subnets
+    Dictionary Should Contain Value    ${result}    'subnetConfig'
+    ${values}    Dictionary Values    ${result}
+    Should Contain    ${values}    ${body}
