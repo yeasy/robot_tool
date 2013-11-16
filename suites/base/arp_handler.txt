@@ -16,6 +16,11 @@ Add and remove a subnet
     ${body}    Create Dictionary    name    ${name}    subnet    10.0.0.254/8
     Add Subnet Gateway    ${name}    ${body}
     ${result}    Get Subnets
-    Dictionary Should Contain Value    ${result}    'subnetConfig'
-    ${values}    Dictionary Values    ${result}
-    Should Contain    ${values}    ${body}
+    Dictionary Should Contain Key    ${result}    subnetConfig
+    ${subnets}    Get From Dictionary    ${result}    subnetConfig
+    List Should Contain Value    ${subnets}    ${body}
+    Remove Subnet Gateway    ${name}
+    ${result}    Get Subnets
+    Dictionary Should Contain Key    ${result}    subnetConfig
+    ${subnets}    Get From Dictionary    ${result}    subnetConfig
+    List Should Not Contain Value    ${subnets}    ${body}
