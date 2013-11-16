@@ -12,3 +12,5 @@ PREFIX = 'http://' + CONTROLLER_IP + ':' + PORT
 CONTAINER = 'default'
 USER = 'admin'
 PWD = 'admin'
+AUTH = [u'admin',u'admin']
+ODL_CONTROLLER_SESSION=None
