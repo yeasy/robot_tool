@@ -19,9 +19,8 @@ robot_tool
   pip install -U robotframework-requests
 
 * [OpenDaylight Controller](https://wiki.opendaylight.org/view/GettingStarted:Developer_Main)
-   * Download and build OpenDaylight Controller
-
    ```
+   # Download and build OpenDaylight Controller
    git clone https://git.opendaylight.org/gerrit/p/controller.git
    cd controller/opendaylight/distribution/opendaylight
    mvn clean install -DskipTests -Dmaven.compile.fork=true -U
@@ -38,26 +37,27 @@ robot_tool
   ```
 * Start mininet, and make sure mininet has all switches connected to the controller, for example, 
       `sudo mn --controller=remote,ip=your_controller_ip --topo tree,2`
-*  Goto base directory, executing `pybot switch_manager.txt`
+*  Go to the suites directory, executing the suite such as `pybot base` which will run all tests in the base edition or `pybot switch_manager.txt` to test the switch manager module.
   
-##Code Description
-|
-|
-|------\cases----|
-       |         \-----base  //all test cases for base edition
-       |         |
-       |         \-----service_provider // all test cases for service provider edition
-       |         |
-       |         \-----virtualization  // all test cases for virtualization edition
-       |
-       \-----libraries  // all keywords
-       |
-       \-----resources  // resources related stuff
-       |
-       \-----variables  // all variables
+##Code Structure
+
+    robot_tool
+    \---------suites       # all robot test suites
+    |         \-----base                # all test suites for the base edition
+    |         |
+    |         \-----service_provider    # all test suites for the service provider edition
+    |         |
+    |         \-----virtualization      # all test suites for the service provider edition
+    |
+    \---------libraries    # all keywords
+    |
+    \---------resources    # resources related files
+    |
+    \---------variables    # all variables
+
 
 ##Development Plan
-* TODO
+* Finish test suites for the base edition.
 
 ##About OpenDaylight
 OpenDaylight is the first production-quality open-source SDN management platform sponsored by Linux Foundation. 
