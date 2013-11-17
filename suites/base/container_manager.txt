@@ -3,9 +3,28 @@ Documentation     Test suite for the container manager bundle.
 Library           Collections
 Library           RequestsLibrary
 Library           ../../libraries/Common.py
+Library           ../../libraries/ContainerManager.py
 Variables         ../../variables/Variables.py
 
 *** Variables ***
-${REST_CONTEXT}        /controller/nb/v2/containermanager
+${name}           test_container1
+@{nodeconnectors}    OF|1@OF|00:00:00:00:00:00:00:01    OF|23@OF|00:00:00:00:00:00:20:21
 
 *** Test Cases ***
+Add and remove a container
+    [Documentation]    Add and remove a container. After each operation, list to validate the result.
+    [Tags]    add_remove_info
+    ${flowspecs}    Convert To List    ${EMPTY}
+    Log Variables
+    ${body}    Create Dictionary    container    ${name}    flowSpecs    ${flowspecs}    staticVlan
+    ...    10    nodeConnectors    ${nodeconnectors}
+    Add Container    ${name}    ${body}
+    ${result}    Get Containers
+    Dictionary Should Contain Key    ${result}    container-config
+    ${containers}    Get From Dictionary    ${result}    container-config
+    List Should Contain Value    ${containers}    ${body}
+    Remove Container    ${name}
+    ${result}    Get Containers
+    Dictionary Should Contain Key    ${result}    container-config
+    ${containers}    Get From Dictionary    ${result}    container-config
+    List Should Not Contain Value    ${containers}    ${body}

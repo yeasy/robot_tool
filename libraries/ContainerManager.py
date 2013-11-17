@@ -34,15 +34,13 @@ class ContainerManager(TestModule):
         """
         Add a container
         """
-        self.container = 'container'
-        super(self.__class__, self).add_entry('containermanager', name, body)
+        super(self.__class__, self).add_entry('container', name, body)
 
     def remove_container(self, name):
         """
         Remove a container
         """
-        self.container = 'container'
-        super(self.__class__, self).remove_entry('containermanager', name)
+        super(self.__class__, self).remove_entry('container', name)
 
     def test_container_operations(self, name, body):
         """
