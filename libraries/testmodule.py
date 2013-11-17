@@ -27,7 +27,7 @@ class TestModule(object):
         """
         Return all nodes.
         """
-        if isinstance(content, dict) or not content.has_key(key):
+        if not isinstance(content, dict) or not content.has_key(key):
             return None
         else:
             return [e.get(property) for e in content[key]]
