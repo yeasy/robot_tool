@@ -9,6 +9,7 @@ Variables         ../../variables/Variables.py
 *** Variables ***
 ${name}           test_container1
 @{nodeconnectors}    OF|1@OF|00:00:00:00:00:00:00:01    OF|23@OF|00:00:00:00:00:00:20:21
+${key}            container-config
 
 *** Test Cases ***
 Add and remove a container
@@ -20,11 +21,11 @@ Add and remove a container
     ...    10    nodeConnectors    ${nodeconnectors}
     Add Container    ${name}    ${body}
     ${result}    Get Containers
-    Dictionary Should Contain Key    ${result}    container-config
-    ${containers}    Get From Dictionary    ${result}    container-config
-    List Should Contain Value    ${containers}    ${body}
+    Dictionary Should Contain Key    ${result}    ${key}
+    ${content}    Get From Dictionary    ${result}    ${key}
+    List Should Contain Value    ${content}    ${body}
     Remove Container    ${name}
     ${result}    Get Containers
-    Dictionary Should Contain Key    ${result}    container-config
-    ${containers}    Get From Dictionary    ${result}    container-config
-    List Should Not Contain Value    ${containers}    ${body}
+    Dictionary Should Contain Key    ${result}    ${key}
+    ${content}    Get From Dictionary    ${result}    ${key}
+    List Should Not Contain Value    ${content}    ${body}
