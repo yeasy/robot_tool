@@ -14,3 +14,4 @@ USER = 'admin'
 PWD = 'admin'
 AUTH = [u'admin',u'admin']
 ODL_CONTROLLER_SESSION=None
+TOPO_TREE_LEVEL=2

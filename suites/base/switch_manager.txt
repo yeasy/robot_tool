@@ -18,7 +18,7 @@ List all nodes
     [Tags]    list_info
     ${URL}    Combine Strings    ${REST_CONTEXT}    /    ${CONTAINER}    /nodes
     Log    ${topo_tree_level}
-    ${topo_nodes}    Get Nodes From Topology    ${topo_tree_level}
+    ${topo_nodes}    Get Nodes From Topology    ${TOPO_TREE_LEVEL}
     ${resp}    Get    ${ODL_CONTROLLER_SESSION}    ${URL}
     Should Be Equal As Strings    ${resp.status_code}    200    Response status code error
     ${jsondata}=    To JSON    ${resp.content}
