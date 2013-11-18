@@ -26,31 +26,9 @@ class TopologyManager(TestModule):
     def get_topology(self):
         """
         The name is suggested to match the NB API.
-        Show the topology
-        >>> TopologyManager().get_topology()
-        True
+        Get the topology
         """
-        result = []
-        r = super(self.__class__, self).get_entries()
-        if r:
-            v = [e['edge'] for e in r['edgeProperties']]
-            result.append({u'tailNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:01'},
-                                                  u'type': u'OF', u'id': u'2'},
-                           u'headNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:03'},
-                                                  u'type': u'OF', u'id': u'3'}} in v)
-            result.append({u'tailNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:03'},
-                                                  u'type': u'OF', u'id': u'3'},
-                           u'headNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:01'},
-                                                  u'type': u'OF', u'id': u'2'}} in v)
-            result.append({u'tailNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:02'},
-                                                  u'type': u'OF', u'id': u'3'},
-                           u'headNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:01'},
-                                                  u'type': u'OF', u'id': u'1'}} in v)
-            result.append({u'tailNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:01'},
-                                                  u'type': u'OF', u'id': u'1'},
-                           u'headNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:02'},
-                                                  u'type': u'OF', u'id': u'3'}} in v)
-            print result == [True, True, True, True]
+        return super(self.__class__, self).get_entries()
 
     def get_userlinks(self):
         """
@@ -77,6 +55,35 @@ class TopologyManager(TestModule):
         suffix = 'userLink'
         r = super(self.__class__, self).delete(suffix + '/' + name)
         return r
+
+    def test_get_topology(self):
+        """
+        The name is suggested to match the NB API.
+        Test the topology
+        >>> TopologyManager().test_get_topology()
+        True
+        """
+        result = []
+        r = self.get_topology()
+        if r:
+            v = [e['edge'] for e in r['edgeProperties']]
+            result.append({u'tailNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:01'},
+                                                  u'type': u'OF', u'id': u'2'},
+                           u'headNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:03'},
+                                                  u'type': u'OF', u'id': u'3'}} in v)
+            result.append({u'tailNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:03'},
+                                                  u'type': u'OF', u'id': u'3'},
+                           u'headNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:01'},
+                                                  u'type': u'OF', u'id': u'2'}} in v)
+            result.append({u'tailNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:02'},
+                                                  u'type': u'OF', u'id': u'3'},
+                           u'headNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:01'},
+                                                  u'type': u'OF', u'id': u'1'}} in v)
+            result.append({u'tailNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:01'},
+                                                  u'type': u'OF', u'id': u'1'},
+                           u'headNodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:02'},
+                                                  u'type': u'OF', u'id': u'3'}} in v)
+            print result == [True, True, True, True]
 
     def test_userlink_operations(self, name, body):
         """
