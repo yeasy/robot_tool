@@ -55,6 +55,57 @@ robot_tool
     |
     \---------variables    # all variables
 
+##Hack Code
+###Create and import Library
+The robotframework supports both Python and Java based library. Here we take the Python code for example.
+
+The library can be either a normal module or a class (Commonly a *.py file). You can add the `Library    your_library_file` command into the `*** Settings ***` part to import a library. Notice the elements (variable, keyword, etc) separator in robot script is tab, instead of space. Space is only used inside the name of the same element. 
+
+###Add Keyword
+In case of a module, a keyword will be created for each top-level function in the module. In case of a class, a keyword will be created for each public method of the class.
+
+Keyword name will be mapped to the function name (case insensitively and underscores removed), and the keywords will have same arguments as the functions. For example, if you define a function in the library as
+```
+def print_hello_world(param1,param2):
+    """
+    Just print out the first hello to the world.
+    """
+    print "Hello world",param1,param2
+```
+Then after import the library, you can use the keyword in the robot framework as
+```
+$param1    Hi
+$param2    Again
+Print Hello World     ${param1}    ${param2}
+```
+
+###Example Case
+Some useful basic functions are defined in `libraries/Common.py` library.
+You can see the code to find a `collection_should_contain` function (check if a collection should contain every given member) like
+```
+import collections
+def collection_should_contain(collection, *members):
+    """
+    Fail if not every members is in the collection.
+    """
+    if not isinstance(collection, collections.Iterable):
+        return False
+    for m in members:
+        if m not in collection:
+            return False
+    else:
+        return True
+```
+Then we can use the keyword `Collection Should Contain` after importing the library as
+`Library           ../../libraries/Common.py`.
+For example, in the switch_manager.txt robot script.
+```
+Collection Should Contain    ${nodes}    ${topo_nodes}
+```
+
+
+###Learning More
+Would like to suggest to read the [Python Tutorial for robotframework] (http://code.google.com/p/robotframework/wiki/PythonTutorial) and the [Robot Framework User Guide](http://code.google.com/p/robotframework/wiki/UserGuide).
 
 ##Development Plan
 * Finish test suites for the base edition.
