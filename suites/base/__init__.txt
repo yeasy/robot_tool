@@ -1,0 +1,9 @@
+*** Settings ***
+Documentation     Test suite for the OpenDaylight base edition
+Force Tags        base
+Library           Collections
+Library           RequestsLibrary
+Library           ../../libraries/Common.py
+Variables         ../../variables/Variables.py
+
+*** Variables ***
