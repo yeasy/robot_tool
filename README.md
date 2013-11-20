@@ -14,10 +14,6 @@ robot_tool
 ##Usage
 ###Prerequisites
 * Python 2.6/2.7
-* Python [Roboframework-requests library](https://github.com/bulkan/robotframework-requests/)
- 
-  pip install -U robotframework-requests
-
 * [OpenDaylight Controller](https://wiki.opendaylight.org/view/GettingStarted:Developer_Main)
    ```
    # Download and build OpenDaylight Controller
