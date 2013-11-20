@@ -33,7 +33,7 @@ robot_tool
   ```
 * Start mininet, and make sure mininet has all switches connected to the controller, for example, 
       `sudo mn --controller=remote,ip=your_controller_ip --topo tree,2`
-*  Go to the suites directory, executing the suite such as `pybot --variable topo_tree_level:2 base` which will run all tests in the base edition or `pybot --variable topo_tree_level:2 switch_manager.txt` to test the switch manager module.
+*  Go to the suites directory, executing the suite such as `pybot  -v CONTROLLER:127.0.0.1 base` which will run all tests in the base edition or `pybot  -v CONTROLLER:127.0.0.1 switch_manager.txt` to test the switch manager module.
   
 ##Code Structure
 
