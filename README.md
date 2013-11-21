@@ -1,8 +1,8 @@
 robot_tool
 ==========
-*robot test tool for OpenDaylight Project.*
+*robot based test tool for OpenDaylight Project.*
 
-* Version: 0.1
+* Version: 0.2
 * Authors: [Baohua Yang](mailto:yangbaohua@gmail.com), [Denghui Huang](mailto:huangdenghui@gmail.com)
 * Homepage: <https://github.com/yeasy/robot_tool>
 
@@ -14,15 +14,29 @@ robot_tool
 ##Usage
 ###Prerequisites
 * Python 2.6/2.7
+
+```
+aptitude install python2.7
+```
 * [OpenDaylight Controller](https://wiki.opendaylight.org/view/GettingStarted:Developer_Main)
-   ```
+   
+```
    # Download and build OpenDaylight Controller
    git clone https://git.opendaylight.org/gerrit/p/controller.git
    cd controller/opendaylight/distribution/opendaylight
    mvn clean install -DskipTests -Dmaven.compile.fork=true -U
-   ```
+```
 * [Mininet](http://mininet.org/walkthrough/)
+ 
+```
+aptitude install mininet
+```
 * [Robotframework](http://robotframework.org/)
+
+```
+pip install robotframework
+```
+
 
 ###Run Test
 * Start the [OpenDaylight Controller](https://wiki.opendaylight.org/view/GettingStarted:Developer_Main)
@@ -52,7 +66,7 @@ robot_tool
     \---------variables    # all variables
 
 ##Hack Code
-###Create and import Library
+###Create and Import Library
 The robotframework supports both Python and Java based library. Here we take the Python code for example.
 
 The library can be either a normal module or a class (Commonly a *.py file). You can add the `Library    your_library_file` command into the `*** Settings ***` part to import a library. Notice the elements (variable, keyword, etc) separator in robot script is tab, instead of space. Space is only used inside the name of the same element. 
